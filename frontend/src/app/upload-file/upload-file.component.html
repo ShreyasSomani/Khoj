@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <input class="form-control" type="file" (change)="onChange($event)">
+    </div>
+    <div class="col-md-1"><button (click)="onUpload()" class="btn btn-primary ">
+            Upload
+        </button></div>
+    <div class="col-md-2"></div>
+</div>
+
+
+<!--Flag variable is used here-->
+<div class="d-flex justify-content-center mt-5">
+    <img id="blah" src="" alt="your image" height="300" width="300" />
+</div>
+
+<!-- Shareable short link of uploaded file -->
+<div class="container text-center jumbotron">
+    <div *ngIf="shortLink">
+        <h2> Visit Here</h2>
+        <a href="{{shortLink}}">{{shortLink}}</a>
+        <div class="card-body d-flex justify-content-center">
+            <div class="card border-dark border-radius rounded-1 mb-3">
+            <h5 class="card-title bg-light">Coffee</h5>
+          </div>
+        </div>
+    </div>
+    <div class="spinner-border" *ngIf="loading" role="status">
+    </div>
+</div>
