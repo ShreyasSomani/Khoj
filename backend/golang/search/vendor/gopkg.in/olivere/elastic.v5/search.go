@@ -428,7 +428,7 @@ type SearchResult struct {
 // a search result.
 func (r *SearchResult) TotalHits() int64 {
 	if r.Hits != nil {
-		return r.Hits.TotalHits
+		return r.Hits.TotalHits.Value
 	}
 	return 0
 }
@@ -456,9 +456,14 @@ func (r *SearchResult) Each(typ reflect.Type) []interface{} {
 
 // SearchHits specifies the list of search hits.
 type SearchHits struct {
-	TotalHits int64        `json:"total"`     // total number of hits found
+	TotalHits Total        `json:"total"`     // total number of hits found
 	MaxScore  *float64     `json:"max_score"` // maximum score of all hits
 	Hits      []*SearchHit `json:"hits"`      // the actual hits returned
+}
+
+type Total struct {
+	Value    int64  `json:"value"`
+	Relation string `json:"relation,omitempty"`
 }
 
 // NestedHit is a nested innerhit
