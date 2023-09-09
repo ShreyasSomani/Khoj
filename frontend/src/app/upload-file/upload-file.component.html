@@ -37,7 +37,7 @@
               </div>
         </div>
         <div class="row g-0 d-flex justify-content-center mt-3">
-              <div class="card mb-3 col-md-4 mx-2" *ngFor="let product of products, index as i">
+              <div class="card mb-3 col-md-4 mx-2 bg-color-light-blue" *ngFor="let product of products, index as i">
                 <div class="row g-0">
                   <div class="col-md-4">
                     <img id="blah - blah" class="card-img-bottom" src="{{product.image_url}}" alt="Card image cap">
@@ -45,16 +45,16 @@
                   <div class="col-md-8">
                     <div class="card-body pb-0 px-2 pt-2">
                         <div class="row g-0">
-                        <div class="col-md-6 text-secondary">Brand:{{product.brand}}</div>
-                        <div class="col-md-6">Product:{{product.name}}</div>
+                        <div class="col-md-6">Brand : {{product.brand}}</div>
+                        <div class="col-md-6">Product : {{product.name}}</div>
                         </div>
                         <div class="row g-0">
-                        <div class="col-md-6 text-secondary">MRP: <s>{{product.market_price}}</s></div>
-                        <div class="col-md-6">Sale Price: {{product.sale_price}}</div>
+                        <div class="col-md-6">MRP : <s>{{product.market_price}}</s></div>
+                        <div class="col-md-6">Our Price : {{product.sale_price}}</div>
                         </div>
                         <div class="row g-0">
-                            <div class="col-md-6">1</div>
-                            <button class="col-md-6 p-0 btn btn-secondary">Add To Cart</button>
+                          <div class="col-md-6">Rating : {{product.rating}}</div>
+                            <button class="col-md-6 p-0">Add To Cart</button>
                             </div>
                     </div>
                   </div>

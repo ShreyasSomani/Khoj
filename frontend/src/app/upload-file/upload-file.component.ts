@@ -12,7 +12,7 @@ export class UploadFileComponent implements OnInit, OnDestroy {
   public items: any = [];
   public products: any = [];
   // Variable to store areDishesAvailable from api response
-  areDishesAvailable: string = '';
+  areDishesAvailable: string | undefined = '';
   loading: boolean = false; // Flag variable
   paginationCount = Math.floor(this.products.length / 6);
   selectedFile: File | null = null; // Variable to store file
@@ -46,6 +46,7 @@ export class UploadFileComponent implements OnInit, OnDestroy {
   // OnClick of button Upload
   onUpload() {
     this.loading = !this.loading;
+    this.areDishesAvailable = undefined;
     this.uploadFileService
       .upload(this.selectedFile)
       .subscribe((event: any) => {
