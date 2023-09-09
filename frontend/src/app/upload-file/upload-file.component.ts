@@ -8,7 +8,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./upload-file.component.css']
 })
 export class UploadFileComponent implements OnInit, OnDestroy {
-
+ public items:any = [{ name: 'Milk', listItemHovered: false },
+  { name: 'Coffee Powder', listItemHovered: false},
+   {name:  'Sugar' , listItemHovered: false},
+    {name: 'Coffee Mug',  listItemHovered: false}];
 	// Variable to store shortLink from api response
 	shortLink: string = "";
 	loading: boolean = false; // Flag variable
@@ -33,6 +36,7 @@ export class UploadFileComponent implements OnInit, OnDestroy {
         imageElement.src = URL.createObjectURL(this.selectedFile);
         imageElement.style.display = "block";
       }
+      this.onUpload();
     }
 	}
 
@@ -41,7 +45,6 @@ export class UploadFileComponent implements OnInit, OnDestroy {
 		this.loading = !this.loading;
 		this._uploadFileService.upload(this.selectedFile).subscribe(
 			(event: any) => {
-        console.log(event);
 				if (typeof (event) === 'object') {
 
 					// Short link via api response
@@ -54,5 +57,9 @@ export class UploadFileComponent implements OnInit, OnDestroy {
 	}
 
   ngOnDestroy(): void {
+}
+
+hoverListItem(item: any) {
+  item.listItemHovered = !item.listItemHovered;
 }
 }
